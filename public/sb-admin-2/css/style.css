@@ -1,0 +1,32 @@
+.image-preview {
+  width: 200px;
+  min-height: 200px;
+  border: 2px solid black;
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: red;
+}
+
+.image-preview__image {
+  width: 100%;
+}
+
+.images-bg {
+  height: 300px;
+  background-color: black;
+  background-image: url("/images/DS/k.PNG");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 75px;
+}
+.images-bg img {
+  width: 150px;
+  border: 3px solid white;
+  background-color: black;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,86 @@
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+/*navbar aktif*/
+#navvv li.active a {
+	background-color: darkred;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+/*header menu home*/
+.header-home {
+	width: 100%;
+	min-height: 100vh;
+	background-color: black;
+	background-image: url(/image/fe/mpl_bg.jpg);
+	background-size: cover;
+}
+
+/*header menu tim*/
+.header-tim {
+	width: 100%;
+	min-height: 50vh;
+	background-color: black;
+	background-image: url(/image/fe/head4.jpeg);
+	background-repeat: repeat-x;
+	background-size: contain;
+	background-position: center;
+}
+
+/*pemisah*/
+.jumbo {
+	height: 30vh;
+	background-image: url(/image/fe/concert-3.jpg);
+	background-attachment: fixed;
+  	background-position: center;
+  	background-repeat: no-repeat;
+}
+
+
+/* overlay team*/
+.ovl {
+	opacity: 0;
+	transition: 1s;
+}
+.ovl:hover {
+	opacity: 5;
+	background: rgb(0, 0, 0, 0.7);
+}
+
+.team-logo img {
+	display: flex;
+	filter: drop-shadow(10px 10px 5px black);
+	border-style: none;
+}
+
+.logo-team-home{
+	min-width: 200px;
+	min-width: 200px;
+	border-style: none;
+	vertical-align: middle;
+}
+
+.scroll {
+	overflow: auto;
+	height: 300px;
+}
