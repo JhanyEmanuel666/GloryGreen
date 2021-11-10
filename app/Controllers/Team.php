@@ -24,9 +24,11 @@ class Team extends BaseController
     }
     
     public function detail($id)
-    {        
+    {   
+        $teamm = $this->team->getTeam($id);
+
         $data = [
-            'title'     => 'team / show',
+            'title'     => $teamm['nama_team'],
             'team'      => $this->team->getTeam($id),
             'player'    => $this->team->getTeam_Player($id)
         ];

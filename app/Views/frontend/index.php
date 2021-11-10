@@ -4,7 +4,7 @@
 
 <?= $this->include('frontend/layout/navbar'); ?>
  
-    <div class="header-home"></div>
+    <div class="header-home img-fluid"></div>
 
     <div class="container-fluid pt-lg-5">
 

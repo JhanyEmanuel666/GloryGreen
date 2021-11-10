@@ -1,9 +1,7 @@
 .image-preview {
-  width: 200px;
-  min-height: 200px;
-  border: 2px solid black;
+  width: 150px;
+  min-height: 150px;
   margin-top: 15px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +16,7 @@
 .images-bg {
   height: 300px;
   background-color: black;
-  background-image: url("/images/DS/k.PNG");
+  background-image: url("/image/DS/k.PNG");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,4 +27,27 @@
   border: 3px solid white;
   background-color: black;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bgg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background: url("/image/vv.JPEG") center;
+  background-size: contain;
+  filter: blur(2px);
+}
+
+.logBox {
+  color: white;
+  position: relative;
+  width: 500px;
+  margin: auto;
+  margin-top: 120px;
+  background: rgba(255, 233, 233, 0);
+  border: 2px solid;
+  border-color: antiquewhite;
 }

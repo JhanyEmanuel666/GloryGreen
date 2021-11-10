@@ -6,7 +6,7 @@
 	
 	<div class="card shadow-lg">
 		<div class="card-header">
-			<a href="<?= base_url('admin_jadwal/create'); ?>" class="btn btn-outline-success"><i class="fa fa-plus"></i></a>
+			<a href="<?= base_url('admin_season/create'); ?>" class="btn btn-outline-success"><i class="fa fa-plus"></i></a>
 		</div>
 		
 		<div class="card-body">
@@ -34,28 +34,30 @@
                 	<thead class="text-center">
                 		<tr>
                 			<th>No</th>
-                            <th>Reguler</th>
-                			<th>Image</th>
+                			<th>Nama Season</th>
+                            <th>Juara</th>
+                            <th>MVP</th>
                             <th>Pilihan</th>
                 		</tr>
                 	</thead>
                 	<tbody class="text-center">
-                		<?php $no=1; foreach($jadwal as $row) :?>
+                		<?php $no=1; foreach($season as $row){?>
                 			<tr>
                 				<td><?= $no++; ?></td>
-                                <td><?= $row['nama']; ?></td>
-                				<td><?= $row['img_jadwal']; ?></td>
+                				<td><?= $row['nama_season']; ?></td>
+                                <td><?= $row['nama_team']; ?></td>
+                                <td><?= $row['ign']; ?></td>
                 				<td class="text-center">
-                                    <a href="<?= base_url('admin_jadwal/show/' . $row['id_jadwal']); ?>" class="btn btn-outline-info">
+                                    <a href="<?= base_url('admin_season/show/' . $row['id_season']); ?>" class="btn btn-outline-info">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                					<a href="<?= base_url('admin_jadwal/edit/' . $row['id_jadwal']); ?>" class="btn btn-outline-warning">
+                					<a href="<?= base_url('admin_season/edit/' . $row['id_season']); ?>" class="btn btn-outline-warning">
                                         <i class="fa fa-edit"></i>               
                                     </a>
-                					<a href="<?= base_url('admin_jadwal/delete/' . $row['id_jadwal']); ?>" class="btn btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-alt"></i></a>
+                					<a href="<?= base_url('admin_season/delete/' . $row['id_season']); ?>" class="btn btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-alt"></i></a>
                 				</td>
                 			</tr>
-                		<?php endforeach; ?>
+                		<?php } ?>
                 	</tbody>
                 </table>
             </div>

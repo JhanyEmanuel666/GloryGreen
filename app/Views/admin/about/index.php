@@ -6,7 +6,7 @@
 	
 	<div class="card shadow-lg">
 		<div class="card-header">
-			<a href="<?= base_url('admin_jadwal/create'); ?>" class="btn btn-outline-success"><i class="fa fa-plus"></i></a>
+			<a href="<?= base_url('admin_about/create'); ?>" class="btn btn-outline-success"><i class="fa fa-plus"></i></a>
 		</div>
 		
 		<div class="card-body">
@@ -34,25 +34,27 @@
                 	<thead class="text-center">
                 		<tr>
                 			<th>No</th>
-                            <th>Reguler</th>
-                			<th>Image</th>
+                            <th>Facebook</th>
+                			<th>Instagram</th>
+                			<th>Twitter</th>
                             <th>Pilihan</th>
                 		</tr>
                 	</thead>
                 	<tbody class="text-center">
-                		<?php $no=1; foreach($jadwal as $row) :?>
+                		<?php $no=1; foreach($about as $row):?>
                 			<tr>
                 				<td><?= $no++; ?></td>
-                                <td><?= $row['nama']; ?></td>
-                				<td><?= $row['img_jadwal']; ?></td>
+                                <td><?= $row['facebook']; ?></td>
+                				<td><?= $row['instagram']; ?></td>
+                                <td><?= $row['twitter']; ?></td>
                 				<td class="text-center">
-                                    <a href="<?= base_url('admin_jadwal/show/' . $row['id_jadwal']); ?>" class="btn btn-outline-info">
+                                    <a href="<?= base_url('admin_about/show/' . $row['id_about']); ?>" class="btn btn-outline-info">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                					<a href="<?= base_url('admin_jadwal/edit/' . $row['id_jadwal']); ?>" class="btn btn-outline-warning">
+                					<a href="<?= base_url('admin_about/edit/' . $row['id_about']); ?>" class="btn btn-outline-warning">
                                         <i class="fa fa-edit"></i>               
                                     </a>
-                					<a href="<?= base_url('admin_jadwal/delete/' . $row['id_jadwal']); ?>" class="btn btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-alt"></i></a>
+                					<a href="<?= base_url('admin_about/delete/' . $row['id_about']); ?>" class="btn btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-alt"></i></a>
                 				</td>
                 			</tr>
                 		<?php endforeach; ?>

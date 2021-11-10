@@ -31,8 +31,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
 $routes->get('/', 'Home::index');
-$routes->get('/admin', 'Admin_Dashboard::index');
+$routes->get('/admin', 'Admin_Dashboard::index', ['filter' => 'auth']);
+$routes->get('/admin_dashboard', 'Admin_Dashboard::index', ['filter' => 'auth']);
+$routes->get('/admin_team', 'Admin_Team::index', ['filter' => 'auth']);
+$routes->get('/admin_profile', 'Admin_Profile::index', ['filter' => 'auth']);
+$routes->get('/admin_player', 'Admin_Player::index', ['filter' => 'auth']);
+$routes->get('/admin_berita', 'Admin_Berita::index', ['filter' => 'auth']);
+$routes->get('/admin_jadwal', 'Admin_Jadwal::index', ['filter' => 'auth']);
+$routes->get('/admin_season', 'Admin_Season::index', ['filter' => 'auth']);
+$routes->get('/admin_about', 'Admin_About::index', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

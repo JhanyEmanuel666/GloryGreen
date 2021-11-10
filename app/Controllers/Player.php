@@ -22,9 +22,11 @@ class Player extends BaseController
     }
     
     public function detail($id)
-    {        
+    {   
+        $plyr = $this->player->getPlayer($id);
+
         $data = [
-            'title'     => 'team / show',
+            'title'     => $plyr['nama_team'] . ' - Player' ,
             'player'    => $this->player->getPlayer($id)
         ];
 

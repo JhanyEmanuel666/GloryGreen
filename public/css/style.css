@@ -20,6 +20,10 @@
   background: #b30000; 
 }
 
+
+#navvv li a{
+	color: white; !important
+}
 /*navbar aktif*/
 #navvv li.active a {
 	background-color: darkred;

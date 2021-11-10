@@ -24,7 +24,7 @@
             </li>
 
             <li>
-                <a class="nav-link" href="<?= base_url('sesion'); ?>" data-toggle="tooltip" data-placement="bottom" title="Session">Session MPL</a>
+                <a class="nav-link" href="<?= base_url('season_mpl'); ?>" data-toggle="tooltip" data-placement="bottom" title="Session">Season MPL</a>
             </li>
 
             <li>

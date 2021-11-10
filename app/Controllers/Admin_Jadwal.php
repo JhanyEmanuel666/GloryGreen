@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\JadwalModel;
 use App\Models\JadwalRegulerModel;
-use App\Models\TeamModel;
 
 class Admin_Jadwal extends BaseController
 {
@@ -14,7 +13,6 @@ class Admin_Jadwal extends BaseController
     {
         $this->jadwal   = new JadwalModel();
         $this->reguler  = new JadwalRegulerModel();
-        $this->team     = new TeamModel();
     }
 
     public function index()
@@ -32,7 +30,6 @@ class Admin_Jadwal extends BaseController
         $data = [
             'title'     => 'jadwal/create',
             'reguler'   => $this->reguler->getReguler(),
-            'team'      => $this->team->getTeam()
         ];
 
         return view('admin/jadwal/create', $data);
@@ -40,12 +37,16 @@ class Admin_Jadwal extends BaseController
 
     public function save()
     {
+        $image = $this->request->getFile('img_jadwal');
+        // random nama gbr
+        $name = $image->getRandomName();
+
         $data = [
-            'id_jadwal_reguler'    => $this->request->getPost('id_reguler'),
-            'team_1'        => $this->request->getPost('team_1'),
-            'team_2'        => $this->request->getPost('team_2'),
-            'waktu'         => $this->request->getPost('waktu'),
+            'id_jadwal_reguler'     => $this->request->getPost('id_reguler'),
+            'img_jadwal'            => $name
         ];
+
+        $image->move(ROOTPATH . 'public/image/jadwal', $name);
 
         $simpan = $this->jadwal->insertJadwal($data);
 
@@ -78,26 +79,25 @@ class Admin_Jadwal extends BaseController
     public function update($id)
     {
 
+        $image = $this->request->getFile('img_jadwal');
+
         if ($image->getError()==4) {
             $namaSampul = $this->request->getPost('img_lama');
         } else {
             $namaSampul = $image->getRandomName();
-            $image->move('image/team', $namaSampul);
-            unlink('image/team/' . $this->request->getPost('img_lama'));
+            $image->move('image/jadwal', $namaSampul);
+            unlink('image/jadwal/' . $this->request->getPost('img_lama'));
         }
-            $data = [
-                'nama_team'         => $this->request->getPost('nm_team'),
-                'jumlah_player'     => $this->request->getPost('jlh_player'),
-                'about_team'        => $this->request->getPost('about_team'),
-                'achievements'      => $this->request->getPost('achiev'),
-                'img_team'          => $namaSampul
-            ];
 
-            $ubah = $this->team->updateTeam($data, $id);
-            if ($ubah) {
-                session()->setFlashdata('info', 'Data team berhasil terupdate');
-                return redirect()->to(base_url('admin_team'));
-            }
+        $data = [
+            'img_jadwal'    => $namaSampul
+        ];
+
+        $ubah = $this->jadwal->updateJadwal($data, $id);
+        if ($ubah) {
+            session()->setFlashdata('info', 'Data jadwal berhasil terupdate');
+            return redirect()->to(base_url('admin_jadwal'));
+        }
         
     }
 

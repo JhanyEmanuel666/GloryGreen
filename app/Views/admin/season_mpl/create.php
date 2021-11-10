@@ -17,16 +17,29 @@
         </div>
     <?php } ?>
 
-    <form action="/admin_jadwal/save" method="post" enctype="multipart/form-data">
+    <form action="/admin_season/save" method="post" enctype="multipart/form-data">
     <div class="card shadow lg">
         <div class="card-body">
             <div class="row">
                 <div class="col">
-                    <label for="">Jadwal Reguler</label>
-                    <select name="id_reguler" class="form-control">
-                        <option>Pilih Reguler</option>
-                        <?php foreach($reguler as $row): ?>
-                            <option value="<?= $row['id'];?>"><?= $row['nama']; ?></option>
+                    <label for="">Nama Season</label>
+                    <input type="text" name="nm_season" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for="">Team Juara</label>
+                    <select name="id_juara" class="form-control">
+                        <option>Pilih Team</option>
+                        <?php foreach($team as $row): ?>
+                            <option value="<?= $row['id_team'];?>"><?= $row['nama_team']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="">MVP</label>
+                    <select name="id_mvp" class="form-control">
+                        <option>Pilih MVP</option>
+                        <?php foreach($player as $row): ?>
+                            <option value="<?= $row['id_player'];?>"><?= $row['nama_team']; ?> - <?= $row['ign']; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -43,7 +56,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6">
-                    <?= form_upload('img_jadwal', 'image_player', ['class' => 'form-control', 'id' => 'inpFile']); ?>
+                    <?= form_upload('img_juara', 'img_juara', ['class' => 'form-control', 'id' => 'inpFile']); ?>
                 </div>
             </div>
         </div>

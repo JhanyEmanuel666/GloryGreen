@@ -74,9 +74,19 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('admin_season_mpl') ;?>">
+        <a class="nav-link" href="<?= base_url('admin_season') ;?>">
             <i class="fas fa-fw fa-box"></i>
             <span>Kelola Season MPL</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('admin_about') ;?>">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Kelola About</span>
         </a>
     </li>
 
