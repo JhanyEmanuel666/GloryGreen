@@ -88,3 +88,13 @@
 	overflow: auto;
 	height: 300px;
 }
+
+.bggg {
+	background-image: url(/image/vv.JPEG);
+}
+
+.img_bggg {
+	display: flex;
+	filter: drop-shadow(10px 10px 5px black);
+	border-style: none;
+}

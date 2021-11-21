@@ -75,7 +75,9 @@ class Admin_Season extends BaseController
     {
         $data = [
             'title'     => 'season / edit',
-            'season'     => $this->season->getseason($id)
+            'season'    => $this->season->getseason($id),
+            'team'      => $this->team->getTeam(),
+            'player'    => $this->player->getplayer(),
         ];
 
         return view('admin/season_mpl/edit', $data);
@@ -83,18 +85,28 @@ class Admin_Season extends BaseController
 
     public function update($id)
     {
-        $data = [
-            'facebook'  => $this->request->getPost("fb"),
-            'instagram' => $this->request->getPost("ig"),
-            'twitter'   => $this->request->getPost("tw"),
-            'season'     => $this->request->getPost("season")
-        ];
+        $image = $this->request->getFile('img_season');
 
-        $ubah = $this->season->updateseason($data, $id);
-        if ($ubah) {
-            session()->setFlashdata('info', 'Data berhasil terupdate');
-            return redirect()->to(base_url('admin_season'));
+        if ($image->getError()==4) {
+            $namaSampul = $this->request->getPost('img_lama');
+        } else {
+            $namaSampul = $image->getRandomName();
+            $image->move('image/season', $namaSampul);
+            unlink('image/season/' . $this->request->getPost('img_lama'));
         }
+            $data = [
+                'nama_season'       => $this->request->getPost("nm_season"),
+                'id_team_juara'     => $this->request->getPost("id_juara"),
+                'mvp'               => $this->request->getPost("id_mvp"),
+                'img_team_juara'    => $namaSampul
+            ];
+
+            $ubah = $this->season->updateSeason($data, $id);
+
+            if ($ubah) {
+                session()->setFlashdata('info', 'Data Season berhasil terupdate');
+                return redirect()->to(base_url('admin_season'));
+            }
         
     }
 
@@ -102,7 +114,9 @@ class Admin_Season extends BaseController
     {
         $data = $this->season->getseason($id);
 
-        $hapus = $this->season->deleteseason($id);
+        unlink('image/season/' . $data['img_team_juara']);
+
+        $hapus = $this->season->deleteSeason($id);
         if ($hapus) {
             session()->setFlashdata('warning', 'Data berhasil dihapus');
             return redirect()->to(base_url('admin_season'));

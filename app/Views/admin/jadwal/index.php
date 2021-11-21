@@ -44,7 +44,9 @@
                 			<tr>
                 				<td><?= $no++; ?></td>
                                 <td><?= $row['nama']; ?></td>
-                				<td><?= $row['img_jadwal']; ?></td>
+                				<td>
+                                    <img src="<?= base_url(); ?>/image/jadwal/<?= $row['img_jadwal']; ?>" class="rounded" width="370" height="150">
+                                </td>
                 				<td class="text-center">
                                     <a href="<?= base_url('admin_jadwal/show/' . $row['id_jadwal']); ?>" class="btn btn-outline-info">
                                         <i class="fa fa-eye"></i>

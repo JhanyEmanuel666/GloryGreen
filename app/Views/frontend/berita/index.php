@@ -25,9 +25,9 @@
                 <div class="col-md-4 col-sm-6 mb-5">
 
                     <div class="card">
-                        <img src="/image/berita/<?= $row['img_berita']; ?>" class="card-img-top">
+                        <img src="/image/berita/<?= $row['img_berita']; ?>" class="card-img-top" height="200">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $row['judul'];?></h5>
+                            <h6 class="card-title"><?= $row['judul'];?></h6>
                             <p class="card-text">
                                 <small class="text-muted"><?= $row['tgl_post']; ?></small>
                             </p>

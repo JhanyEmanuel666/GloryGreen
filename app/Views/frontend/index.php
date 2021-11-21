@@ -6,7 +6,7 @@
  
     <div class="header-home img-fluid"></div>
 
-    <div class="container-fluid pt-lg-5">
+    <div class="container-fluid pt-lg-5 bggg">
 
         <div class="row justify-content-center pb-5">
             <div class="col-lg-10">
@@ -35,10 +35,8 @@
                             } ?>
                             <div class="carousel-item <?= $actives; ?>">
                                 <div class="row justify-content-center">
-                                    <div class="col-md-4 col-sm-12">
-                                        <div class="card text-white">
-                                            <img src="/image/team/<?= $row['img_team']; ?>" class="card-img-top">
-                                        </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <img src="/image/team/<?= $row['img_team']; ?>" class="card-img-top img_bggg">
                                     </div>
                                 </div>
                             </div>

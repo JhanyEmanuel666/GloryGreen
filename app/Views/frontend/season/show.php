@@ -13,7 +13,7 @@
         <div class="col-md-2 col-sm-12 pt-lg-5">
             <div class="card">
                 <ul class="list-group list-group-flush">
-                    <?php foreach ($season as $row) { ?>
+                    <?php foreach ($list as $row) { ?>
                     <li class="list-group-item mb-2">
                         <a href="<?= base_url('season_mpl/show/' . $row['id_season']);?>"><?= $row['nama_season'];?></a>
                     </li>
@@ -23,13 +23,10 @@
         </div>
 
         <div class="col-md-10 col-sm-12 text-center">
-
-            <?php foreach ($seasonNow as $row) { ?>
-                <h4 class="mb-4 text-danger"><?= $row['nama_season']; ?> Champion</h4>
-                <picture>
-                    <img src="/image/season/<?= $row['img_team_juara']; ?>"; class="img-fluid img-thumbnail h75">
-                </picture>
-            <?php } ?>
+            <h4 class="mb-4 text-danger"><?= $season['nama_season']; ?> Champion</h4>
+            <picture>
+                <img src="/image/season/<?= $season['img_team_juara']; ?>"; class="img-fluid img-thumbnail h75">
+            </picture>
         </div>
 
     </div>

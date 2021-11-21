@@ -43,7 +43,7 @@
                 		<?php $no=1; foreach($berita as $row):?>
                 			<tr>
                 				<td><?= $no++; ?></td>
-                				<td><?= $row['judul']; ?></td>
+                				<td width="650px"><?= $row['judul']; ?></td>
                                 <td><?= $row['tgl_post']; ?></td>
                 				<td class="text-center">
                                     <a href="<?= base_url('admin_berita/show/' . $row['id_berita']); ?>" class="btn btn-outline-info">

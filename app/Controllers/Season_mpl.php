@@ -23,9 +23,7 @@ class Season_mpl extends BaseController
     }
     
     public function show($id)
-    {   
-        $seasonm = $this->season->getSeason($id);
-
+    {
         $data = [
             'title'     => 'season',
             'list'      => $this->season->getSeason(),

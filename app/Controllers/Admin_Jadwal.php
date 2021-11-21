@@ -19,7 +19,7 @@ class Admin_Jadwal extends BaseController
     {
         $data = [
             'title'     => 'Jadwal',
-            'jadwal'    => $this->jadwal->getJadwal(),
+            'jadwal'    => $this->jadwal->getJadwalAdmin(),
         ];
         
         return view('admin/jadwal/index', $data);
@@ -70,7 +70,7 @@ class Admin_Jadwal extends BaseController
     {
         $data = [
             'title'     => 'jadwal/edit',
-            'team'      => $this->team->getTeam($id)
+            'jadwal'    => $this->jadwal->getJadwal($id)
         ];
 
         return view('admin/jadwal/edit', $data);
@@ -105,7 +105,10 @@ class Admin_Jadwal extends BaseController
     {
         $data = $this->jadwal->getJadwal($id);
 
+        unlink('image/jadwal/' . $data['img_jadwal']);
+
         $hapus = $this->jadwal->deleteJadwal($id);
+        
         if ($hapus) {
             session()->setFlashdata('warning', 'Data Jadwal berhasil dihapus');
             return redirect()->to(base_url('admin_jadwal'));

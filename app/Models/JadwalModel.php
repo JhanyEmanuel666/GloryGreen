@@ -11,6 +11,26 @@ class JadwalModel extends Model
         'id_jadwal', 'id_jadwal_reguler','img_jadwal'
     ];
 
+    public function getJadwalAdmin($id = false)
+    {
+        if($id === false)
+        {   
+            return $this->table('tb_jadwal')
+                ->select('*')
+                ->join('tb_jadwal_reguler', 'tb_jadwal_reguler.id = tb_jadwal.id_jadwal_reguler')
+                ->orderBy('tb_jadwal.id_jadwal', 'DESC')
+                ->get()
+                ->getResultArray();
+        } else {
+            return $this->table('tb_jadwal')
+                ->select('*')
+                ->join('tb_jadwal_reguler', 'tb_jadwal_reguler.id = tb_jadwal.id_jadwal_reguler')
+                ->where('tb_jadwal.id_jadwal', $id)
+                ->get()
+                ->getRowArray();
+        }
+    }
+
     public function getJadwal($id = false)
     {
         if($id === false)

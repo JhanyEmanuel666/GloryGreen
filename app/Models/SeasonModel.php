@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class SeasonModel extends Model
 {
     protected $table = 'tb_season_mpl';
+    
     protected $allowedFields = [
         'id_season', 'nama_season', 'id_team_juara', 'mvp', 'img_team_juara'
     ];
@@ -19,7 +20,7 @@ class SeasonModel extends Model
                 ->join('tb_team', 'tb_team.id_team = tb_season_mpl.id_team_juara')
                 ->join('tb_player','tb_player.id_player = tb_season_mpl.mvp')
                 ->select('*')
-                ->orderBy('nama_season', 'ASC')
+                ->orderBy('nama_season', 'DESC')
                 ->get()
                 ->getResultArray();
         } else {
